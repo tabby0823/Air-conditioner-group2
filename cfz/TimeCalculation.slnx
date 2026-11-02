@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="TimeCalculation.vcxproj" Id="2cb72099-d4a3-4a58-a7e2-0201d04fc41f" />
+</Solution>
