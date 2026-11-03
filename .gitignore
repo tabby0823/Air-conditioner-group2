@@ -1,0 +1,42 @@
+# ===== ESP-IDF 构建产物 =====
+/build/
+components/*/build/
+**/build/
+*.bin
+*.elf
+*.map
+*.hex
+*.dump
+bootloader/*.bin
+partition_table/*.bin
+
+# ===== ESP-IDF 配置 =====
+sdkconfig
+sdkconfig.old
+sdkconfig.backup
+
+# ===== 编辑器 / IDE =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.vcxproj.user
+.vs/
+
+# ===== 操作系统 =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Python =====
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# ===== 日志 / 临时文件 =====
+*.log
+tmp/
+temp/
