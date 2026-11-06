@@ -1,5 +1,0 @@
-HTTP 服务端端口：80（与 TCP 8080 区分，避免冲突）
-数据格式：JSON，Content-Type: application/json，UTF-8 编码
-Base URL：http://<ESP32_IP>/
-
-字段约定：human_present 含义同第 2 节（1=有人 / 0=无人）；ts 时间格式 YYYY-MM-DDTHH:MM:SS。
