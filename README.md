@@ -35,3 +35,9 @@ Air-conditioner-group2/
 ```
 
 > 模块间通信规则以 `docs/interface.md` 为准，改动必须更新文档并全员同步。
+
+
+
+日志存储模块：
+功能：实现检测数据持久保存，日志字段与interface.md保持一致
+配套文档：docs/日志格式说明文档
