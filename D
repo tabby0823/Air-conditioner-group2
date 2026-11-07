@@ -1,0 +1,60 @@
+import requests
+
+BASE_URL = "http://127.0.0.1"  # 改成你的设备实际地址，例如 http://192.168.1.100
+
+
+def get_status():
+    """GET /api/status 当前人员状态与基础信息"""
+    url = f"{BASE_URL}/api/status"
+    resp = requests.get(url, timeout=5)
+    resp.raise_for_status()
+    return resp.json()
+
+
+def get_logs(limit: int = 50):
+    """GET /api/logs 带时间戳日志列表"""
+    url = f"{BASE_URL}/api/logs"
+    params = {"limit": limit}
+    resp = requests.get(url, params=params, timeout=5)
+    resp.raise_for_status()
+    return resp.json()
+
+
+def get_stats():
+    """GET /api/stats 异常 / 事件统计"""
+    url = f"{BASE_URL}/api/stats"
+    resp = requests.get(url, timeout=5)
+    resp.raise_for_status()
+    return resp.json()
+
+
+def simulate_human_state(human_present: int):
+    """
+    POST /api/simulate B模块有人/无人模拟开关，覆盖状态
+    :param human_present: 1=有人，0=无人
+    """
+    url = f"{BASE_URL}/api/simulate"
+    payload = {"human_present": human_present}
+    resp = requests.post(url, json=payload, timeout=5)
+    resp.raise_for_status()
+    return resp.json()
+
+
+if __name__ == "__main__":
+    try:
+        print("===== 获取状态 =====")
+        print(get_status())
+
+        print("\n===== 获取日志（默认50条） =====")
+        print(get_logs())
+
+        print("\n===== 获取统计信息 =====")
+        print(get_stats())
+
+        # 模拟有人：simulate_human_state(1)
+        # 模拟无人：simulate_human_state(0)
+        # print("\n===== 模拟有人状态 =====")
+        # print(simulate_human_state(1))
+
+    except requests.exceptions.RequestException as e:
+        print("接口请求异常：", e)
